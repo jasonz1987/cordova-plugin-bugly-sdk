@@ -1,20 +1,24 @@
-## 项目说明	
-
-腾讯[Buyly SDK](https://bugly.qq.com/)的Cordova插件。
+# cordova-plugin-bugly-sdk
 
 
 
-## 项目演示
+cordova plugin for [Tencent Bugly SDK](https://bugly.qq.com/)
 
-[Demo](https://github.com/jasonz1987/ionic-bugly-sdk-demo)
+you can catch app crash reprot (like android anr, oc expection,js erro etc.) by this plugin.
 
-
-
-## 项目使用
-
-### 安装
+more info, visit https://bugly.qq.com/docs/
 
 
+
+# Example
+
+[Ionic3 Demo](https://github.com/jasonz1987/ionic-bugly-sdk-demo)
+
+
+
+# Docs
+
+## install
 
 ```shell
 cordova plugin add cordova-plugin-bugly-sdk  --variable ANDROID_APPID=your value --variable IOS_APPID=your value
@@ -22,27 +26,24 @@ cordova plugin add cordova-plugin-bugly-sdk  --variable ANDROID_APPID=your value
 
 
 
-### 调用
+##  methods
 
 
+**init sdk**
 
-**初始化SDK**
-
-*注意不同平台下的参数配置可能有差异*
-
-
+*please notice params difference with each platform*
 
 ```javascript
 var args = {
-    // 通用配置
+    // common
     debug:true,
     channel:"test",
     develop:true,
     version:"1.0",
-    // 安卓配置
+    // android
     // delay:20000,
     // package:"com.jasonz.bugly.demo",
-    // IOS配置
+    // ios
     // device_id: "xxx-xxx",
     // block_monitor_enable: true,
     // block_monitor_timeout: 10000
@@ -59,70 +60,60 @@ Bugly.initSDK(function(success){
 
 
 
-**开启Javascript异常捕获（仅安卓）**
-
-
+**enable js error handler**
 
 ```javascript
-
   Bugly.enableJSMonitor();
-
 ```
 
 
 
-**设置用户ID**
-
-
+**set user indentifier**
 
 ```javascript
   var id = "jason.z";
   Bugly.setUserID(id);
-
 ```
 
 
 
-**设置TagID(id必须是数字)**
-
-
+**set tag id(id must be numeric)**
 
 ```javascript
   var id = 10086;
   Bugly.setTagID(id);
-
 ```
 
 
 
-**设置用户自定义数据**
-
-
+**set user define data**
 
 
 ```javascript
-
-  var data = {
+ var data = {
     key:'id',
     value:1
   };
 
  Bugly.putUserData(id);
-
 ```
 
 
 
-还有一些测试闪退的方法，具体参考demo里的代码。
+There also have some methods to test app crash, you can see them in demo project code.
 
 
 
 
-# 赞赏
+# Donate
 
-如果我的项目对你有帮助，欢迎赞赏。
+If this project help you reduce time to develop, you can give me a cup of coffee :)
 
-![donate.png](donate.png)
+
+
+[![paypal](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/jasonz1987/6.66)
+
+
 
 
 
